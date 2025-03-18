@@ -2,13 +2,21 @@ import React from "react";
 import hamburger from "../assets/hamburger.png";
 import logo from "../assets/youtube.png";
 import usericon from "../assets/usericon.webp";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
 const Head = () => {
+    const dispatch = useDispatch();
+const  toggleMenuHandler = ()=>{
+    dispatch (toggleMenu())
+
+};
+
   return (
     <div className="grid grid-cols-3 md:grid-cols-12 p-3 items-center shadow-md sticky top-0 bg-white w-full">
       {/* Left - Hamburger & Logo */}
       <div className="flex items-center col-span-1 md:col-span-2">
-        <img className="h-6 cursor-pointer md:mr-3" src={hamburger} alt="menu" />
+        <img onClick={() => toggleMenuHandler()} className="h-6 cursor-pointer md:mr-3" src={hamburger} alt="menu" />
         <img className="h-8 cursor-pointer" src={logo} alt="YouTube Logo" />
       </div>
 
