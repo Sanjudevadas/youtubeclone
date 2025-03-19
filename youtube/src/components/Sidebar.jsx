@@ -1,6 +1,7 @@
 import React from "react";
 import { Home, PlayCircle, Tv, Music, Gamepad2, Film } from "lucide-react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
 const isMenuOpen = useSelector(store =>store.app.isMenuOpen)
@@ -11,7 +12,9 @@ if (!isMenuOpen) return null;
       <ul className="mt-3 space-y-3">
         <li className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
           <Home className="h-5 w-5" />
-          <span>Home</span>
+          <span>
+            <Link to={"/"}> Home</Link>
+           </span>
         </li>
         <li className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
           <PlayCircle className="h-5 w-5" />
